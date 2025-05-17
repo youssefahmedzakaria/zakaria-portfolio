@@ -6,61 +6,61 @@ import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import BlogCard, { BlogPost } from "@/components/BlogCard";
 
-// Temporary mock data until we connect to Supabase
+// Updated mock data aligned with your professional experience and projects
 const mockPosts: BlogPost[] = [
   {
     id: "1",
     title: "Building Scalable Banking Systems with Java Spring Boot",
     excerpt: "Explore the architecture and design patterns behind modern banking systems and how Java Spring Boot can be leveraged to create secure, scalable financial platforms.",
-    publishedAt: "2024-04-15",
+    publishedAt: "2024-05-10",
     tags: ["Java", "Spring Boot", "Banking", "Architecture"],
     coverImage: "https://images.unsplash.com/photo-1537724326059-2ea20251b9c8?q=80&w=1972&auto=format&fit=crop",
     slug: "building-scalable-banking-systems"
   },
   {
     id: "2",
-    title: "Microservices vs Monoliths: When to Choose What",
-    excerpt: "A deep dive into the trade-offs between microservices and monolithic architectures, with real-world examples from my experience at Kaf Insurance.",
-    publishedAt: "2024-03-28",
-    tags: ["Microservices", "Architecture", "System Design"],
-    coverImage: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop",
-    slug: "microservices-vs-monoliths"
+    title: "Optimizing PostgreSQL for High-Transaction Banking Applications",
+    excerpt: "How I achieved a 70% reduction in customer balance retrieval time at Kaf Insurance by implementing advanced PostgreSQL indexing and caching strategies.",
+    publishedAt: "2024-04-18",
+    tags: ["PostgreSQL", "Performance", "Banking", "Caching"],
+    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
+    slug: "postgresql-optimization-banking"
   },
   {
     id: "3",
-    title: "Python and PostgreSQL: Optimizing Database Performance",
-    excerpt: "Learn how I achieved a 70% reduction in customer balance retrieval time by implementing strategic caching and query optimization techniques.",
-    publishedAt: "2024-02-12",
-    tags: ["Python", "PostgreSQL", "Performance", "Optimization"],
-    coverImage: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=2021&auto=format&fit=crop",
-    slug: "python-postgresql-optimization"
-  },
-  {
-    id: "4",
-    title: "Implementing JWT Authentication in Spring Boot Applications",
-    excerpt: "A step-by-step guide to implementing secure authentication using JWT tokens in Spring Boot applications with best practices for token management.",
-    publishedAt: "2024-01-20",
+    title: "Implementing Secure Authentication in Spring Boot Applications",
+    excerpt: "A step-by-step guide to implementing JWT token authentication in Spring Boot applications with best practices for token management and security.",
+    publishedAt: "2024-03-25",
     tags: ["Spring Boot", "Security", "JWT", "Authentication"],
     coverImage: "https://images.unsplash.com/photo-1545670723-196ed0954986?q=80&w=2052&auto=format&fit=crop",
     slug: "jwt-authentication-spring-boot"
   },
   {
+    id: "4",
+    title: "Microservices vs Monoliths in Banking Applications",
+    excerpt: "A deep dive into the trade-offs between microservices and monolithic architectures, with real-world examples from my experience implementing banking systems.",
+    publishedAt: "2024-02-20",
+    tags: ["Microservices", "Architecture", "System Design", "Banking"],
+    coverImage: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop",
+    slug: "microservices-vs-monoliths-banking"
+  },
+  {
     id: "5",
-    title: "Docker for Development and Deployment: A Complete Guide",
-    excerpt: "Learn how to containerize your applications using Docker for consistent development environments and simplified deployment processes.",
-    publishedAt: "2023-12-05",
-    tags: ["Docker", "DevOps", "Containers", "Deployment"],
+    title: "Containerizing Spring Boot Applications with Docker",
+    excerpt: "Learn how to containerize your Spring Boot applications using Docker for consistent development environments and simplified deployment processes.",
+    publishedAt: "2024-01-15",
+    tags: ["Docker", "Spring Boot", "DevOps", "Deployment"],
     coverImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=2071&auto=format&fit=crop",
-    slug: "docker-development-deployment"
+    slug: "docker-spring-boot-deployment"
   },
   {
     id: "6",
-    title: "Advanced Database Indexing Techniques for PostgreSQL",
-    excerpt: "Dive deep into PostgreSQL indexing strategies to drastically improve query performance in data-intensive applications.",
-    publishedAt: "2023-11-18",
-    tags: ["PostgreSQL", "Database", "Performance", "Indexing"],
-    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
-    slug: "postgresql-indexing-techniques"
+    title: "Building a Video Assessment Platform for Technical Interviews",
+    excerpt: "My experience creating the Virtual Screener platform, a web-based solution for streamlined candidate screening using React.js, Next.js, and Spring Boot.",
+    publishedAt: "2023-12-05",
+    tags: ["React", "Spring Boot", "Recruitment", "Full Stack"],
+    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    slug: "virtual-screener-platform"
   }
 ];
 
