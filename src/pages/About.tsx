@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import GitHubRepos from "@/components/GitHubRepos";
-import Subscribe from "@/components/Subscribe";
 import { Link } from "react-router-dom";
 
 const skills = [
@@ -144,13 +143,6 @@ const About = () => {
                 </a>
               </Button>
             </div>
-          </div>
-        </section>
-        
-        {/* Subscribe Section */}
-        <section className="py-16 border-t">
-          <div className="max-w-2xl mx-auto">
-            <Subscribe />
           </div>
         </section>
       </div>
