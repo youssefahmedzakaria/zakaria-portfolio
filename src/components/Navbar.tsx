@@ -25,7 +25,6 @@ const Navbar = () => {
   
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -40,7 +39,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -67,9 +66,6 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="ml-4 flex items-center space-x-2">
-              <Button variant="ghost" size="icon" aria-label="Search">
-                <Search className="h-5 w-5" />
-              </Button>
               <ThemeToggle />
             </div>
           </nav>
@@ -102,12 +98,6 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-2 mt-2 border-t border-border">
-              <Button variant="ghost" className="w-full justify-start" size="sm">
-                <Search className="h-4 w-4 mr-2" />
-                Search
-              </Button>
-            </div>
           </div>
         </nav>
       )}

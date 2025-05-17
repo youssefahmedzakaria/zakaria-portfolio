@@ -1,83 +1,81 @@
-import { useState, useEffect } from "react";
-import BlogCard, { BlogPost } from "./BlogCard";
+
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Terminal, Code, Database } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Projects data aligned with your resume
-const projectPosts: BlogPost[] = [
+// Projects data matching your experience
+const projects = [
   {
     id: "1",
     title: "Banking System with Java Spring Boot",
-    excerpt: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
-    publishedAt: "2024-09-01",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker"],
-    coverImage: "https://images.unsplash.com/photo-1537724326059-2ea20251b9c8?q=80&w=1972&auto=format&fit=crop",
-    slug: "banking-system-spring-boot"
+    description: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
+    tech: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker"],
+    icon: <Terminal className="h-10 w-10 text-primary" />
   },
   {
     id: "2",
     title: "Virtual Screener Platform",
-    excerpt: "A web-based platform for streamlined candidate screening via video assessments, built during my time at the Siemens Diploma program.",
-    publishedAt: "2024-12-15",
-    tags: ["React.js", "Next.js", "Java", "Spring Boot", "REST API"],
-    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
-    slug: "virtual-screener-platform"
+    description: "A web-based platform for streamlined candidate screening via video assessments, built during the Siemens Diploma program.",
+    tech: ["React.js", "Next.js", "Java", "Spring Boot", "REST API"],
+    icon: <Code className="h-10 w-10 text-primary" />
   },
   {
     id: "3",
     title: "E-Commerce Backend",
-    excerpt: "A scalable e-commerce backend using Java Spring Boot with order management, notifications, and API functionalities following SOLID principles.",
-    publishedAt: "2023-12-01",
-    tags: ["Java", "Spring Boot", "SOLID", "Design Patterns", "E-Commerce"],
-    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
-    slug: "ecommerce-website-backend"
+    description: "A scalable e-commerce backend using Java Spring Boot with order management, notifications, and API functionalities following SOLID principles.",
+    tech: ["Java", "Spring Boot", "SOLID", "Design Patterns", "E-Commerce"],
+    icon: <Database className="h-10 w-10 text-primary" />
   }
 ];
 
 const LatestPosts = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate API loading
-    const loadPosts = async () => {
-      setTimeout(() => {
-        setPosts(projectPosts);
-        setIsLoading(false);
-      }, 500);
-    };
-    
-    loadPosts();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="space-y-3">
-            <div className="w-full h-48 bg-muted animate-pulse rounded-md"></div>
-            <div className="h-4 bg-muted animate-pulse rounded"></div>
-            <div className="h-8 bg-muted animate-pulse rounded"></div>
-            <div className="space-y-2">
-              <div className="h-4 bg-muted animate-pulse rounded"></div>
-              <div className="h-4 bg-muted animate-pulse rounded"></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
+  const [isHovered, setIsHovered] = useState<string | null>(null);
 
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <BlogCard key={post.id} post={post} />
+        {projects.map((project) => (
+          <Card 
+            key={project.id} 
+            className={`border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-background/50 backdrop-blur-sm overflow-hidden group ${
+              isHovered === project.id ? 'ring-1 ring-primary/50' : ''
+            }`}
+            onMouseEnter={() => setIsHovered(project.id)}
+            onMouseLeave={() => setIsHovered(null)}
+          >
+            <CardContent className="p-6">
+              <div className="mb-5 bg-primary/10 p-4 rounded-full inline-block group-hover:scale-110 transition-transform duration-300">
+                {project.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.slice(0, 3).map((tech, i) => (
+                  <span 
+                    key={i} 
+                    className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {project.tech.length > 3 && (
+                  <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-full">
+                    +{project.tech.length - 3} more
+                  </span>
+                )}
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
       <div className="mt-8 text-center">
-        <Button asChild variant="outline">
-          <Link to="/blog">View All Projects</Link>
+        <Button asChild variant="outline" className="rounded-full group">
+          <Link to="/about" className="flex items-center">
+            View All Projects 
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </Button>
       </div>
     </div>
