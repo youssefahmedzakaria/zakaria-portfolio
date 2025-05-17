@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,66 +5,57 @@ import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import BlogCard, { BlogPost } from "@/components/BlogCard";
 
-// Updated mock data aligned with your professional experience and projects
-const mockPosts: BlogPost[] = [
+// Project data aligned with your resume and professional experience
+const projectPosts: BlogPost[] = [
   {
     id: "1",
-    title: "Building Scalable Banking Systems with Java Spring Boot",
-    excerpt: "Explore the architecture and design patterns behind modern banking systems and how Java Spring Boot can be leveraged to create secure, scalable financial platforms.",
-    publishedAt: "2024-05-10",
-    tags: ["Java", "Spring Boot", "Banking", "Architecture"],
+    title: "Banking System with Java Spring Boot",
+    excerpt: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
+    publishedAt: "2024-09-01",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker"],
     coverImage: "https://images.unsplash.com/photo-1537724326059-2ea20251b9c8?q=80&w=1972&auto=format&fit=crop",
-    slug: "building-scalable-banking-systems"
+    slug: "banking-system-spring-boot"
   },
   {
     id: "2",
-    title: "Optimizing PostgreSQL for High-Transaction Banking Applications",
-    excerpt: "How I achieved a 70% reduction in customer balance retrieval time at Kaf Insurance by implementing advanced PostgreSQL indexing and caching strategies.",
-    publishedAt: "2024-04-18",
-    tags: ["PostgreSQL", "Performance", "Banking", "Caching"],
-    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
-    slug: "postgresql-optimization-banking"
+    title: "Virtual Screener Platform",
+    excerpt: "A web-based platform for streamlined candidate screening via video assessments, built during my time at the Siemens Diploma program.",
+    publishedAt: "2024-12-15",
+    tags: ["React.js", "Next.js", "Java", "Spring Boot", "REST API"],
+    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    slug: "virtual-screener-platform"
   },
   {
     id: "3",
-    title: "Implementing Secure Authentication in Spring Boot Applications",
-    excerpt: "A step-by-step guide to implementing JWT token authentication in Spring Boot applications with best practices for token management and security.",
-    publishedAt: "2024-03-25",
-    tags: ["Spring Boot", "Security", "JWT", "Authentication"],
-    coverImage: "https://images.unsplash.com/photo-1545670723-196ed0954986?q=80&w=2052&auto=format&fit=crop",
-    slug: "jwt-authentication-spring-boot"
+    title: "E-Commerce Backend",
+    excerpt: "A scalable e-commerce backend using Java Spring Boot with order management, notifications, and API functionalities following SOLID principles.",
+    publishedAt: "2023-12-01",
+    tags: ["Java", "Spring Boot", "SOLID", "Design Patterns", "E-Commerce"],
+    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
+    slug: "ecommerce-website-backend"
   },
   {
     id: "4",
-    title: "Microservices vs Monoliths in Banking Applications",
-    excerpt: "A deep dive into the trade-offs between microservices and monolithic architectures, with real-world examples from my experience implementing banking systems.",
-    publishedAt: "2024-02-20",
-    tags: ["Microservices", "Architecture", "System Design", "Banking"],
+    title: "Data Operations Automation at Kaf Insurance",
+    excerpt: "How I developed Python-based solutions using Django and PostgreSQL to streamline data operations and improve efficiency at Kaf Insurance.",
+    publishedAt: "2025-04-15",
+    tags: ["Python", "Django", "PostgreSQL", "Automation"],
     coverImage: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop",
-    slug: "microservices-vs-monoliths-banking"
+    slug: "kaf-insurance-data-operations"
   },
   {
     id: "5",
-    title: "Containerizing Spring Boot Applications with Docker",
-    excerpt: "Learn how to containerize your Spring Boot applications using Docker for consistent development environments and simplified deployment processes.",
-    publishedAt: "2024-01-15",
-    tags: ["Docker", "Spring Boot", "DevOps", "Deployment"],
+    title: "Database Performance Optimization",
+    excerpt: "How I achieved a 70% reduction in customer balance retrieval time at Kaf Insurance by implementing advanced PostgreSQL indexing and caching strategies.",
+    publishedAt: "2025-05-02",
+    tags: ["PostgreSQL", "Performance", "Caching", "Optimization"],
     coverImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=2071&auto=format&fit=crop",
-    slug: "docker-spring-boot-deployment"
-  },
-  {
-    id: "6",
-    title: "Building a Video Assessment Platform for Technical Interviews",
-    excerpt: "My experience creating the Virtual Screener platform, a web-based solution for streamlined candidate screening using React.js, Next.js, and Spring Boot.",
-    publishedAt: "2023-12-05",
-    tags: ["React", "Spring Boot", "Recruitment", "Full Stack"],
-    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
-    slug: "virtual-screener-platform"
+    slug: "database-performance-optimization"
   }
 ];
 
 const allTags = Array.from(
-  new Set(mockPosts.flatMap(post => post.tags))
+  new Set(projectPosts.flatMap(post => post.tags))
 ).sort();
 
 const Blog = () => {
@@ -80,10 +70,9 @@ const Blog = () => {
   useEffect(() => {
     // Simulate API loading
     const fetchPosts = async () => {
-      // In the future, this will fetch from Supabase
       setTimeout(() => {
-        setPosts(mockPosts);
-        setFilteredPosts(mockPosts);
+        setPosts(projectPosts);
+        setFilteredPosts(projectPosts);
         setIsLoading(false);
       }, 800);
     };
@@ -160,7 +149,7 @@ const Blog = () => {
     <div className="min-h-screen pt-24">
       <div className="container px-4 mx-auto">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">Blog</h1>
+          <h1 className="text-4xl font-bold mb-8">My Projects</h1>
           
           {/* Search and Filter Section */}
           <div className="mb-8 space-y-4">
@@ -168,7 +157,7 @@ const Blog = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
               <Input
                 type="text"
-                placeholder="Search blog posts..."
+                placeholder="Search projects..."
                 className="pl-10"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -176,7 +165,7 @@ const Blog = () => {
             </div>
             
             <div>
-              <h3 className="text-sm font-medium mb-2 text-muted-foreground">Filter by Tags:</h3>
+              <h3 className="text-sm font-medium mb-2 text-muted-foreground">Filter by Technologies:</h3>
               <div className="flex flex-wrap gap-2">
                 {allTags.map((tag) => (
                   <Badge
@@ -202,10 +191,10 @@ const Blog = () => {
             </div>
           </div>
           
-          {/* Blog Posts */}
+          {/* Project Posts */}
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
-              <h3 className="text-xl font-medium mb-2">No posts found</h3>
+              <h3 className="text-xl font-medium mb-2">No projects found</h3>
               <p className="text-muted-foreground mb-4">
                 Try adjusting your search or filter criteria
               </p>

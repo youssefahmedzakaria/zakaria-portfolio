@@ -1,37 +1,36 @@
-
 import { useState, useEffect } from "react";
 import BlogCard, { BlogPost } from "./BlogCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-// Mock data aligned with your professional experience and projects
-const mockPosts: BlogPost[] = [
+// Projects data aligned with your resume
+const projectPosts: BlogPost[] = [
   {
     id: "1",
-    title: "Building Scalable Banking Systems with Java Spring Boot",
-    excerpt: "Explore the architecture and design patterns behind modern banking systems and how Java Spring Boot can be leveraged to create secure, scalable financial platforms.",
-    publishedAt: "2024-05-10",
-    tags: ["Java", "Spring Boot", "Banking", "Architecture"],
+    title: "Banking System with Java Spring Boot",
+    excerpt: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
+    publishedAt: "2024-09-01",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker"],
     coverImage: "https://images.unsplash.com/photo-1537724326059-2ea20251b9c8?q=80&w=1972&auto=format&fit=crop",
-    slug: "building-scalable-banking-systems"
+    slug: "banking-system-spring-boot"
   },
   {
     id: "2",
-    title: "Optimizing PostgreSQL for High-Transaction Banking Applications",
-    excerpt: "How I achieved a 70% reduction in customer balance retrieval time at Kaf Insurance by implementing advanced PostgreSQL indexing and caching strategies.",
-    publishedAt: "2024-04-18",
-    tags: ["PostgreSQL", "Performance", "Banking", "Caching"],
-    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
-    slug: "postgresql-optimization-banking"
+    title: "Virtual Screener Platform",
+    excerpt: "A web-based platform for streamlined candidate screening via video assessments, built during my time at the Siemens Diploma program.",
+    publishedAt: "2024-12-15",
+    tags: ["React.js", "Next.js", "Java", "Spring Boot", "REST API"],
+    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    slug: "virtual-screener-platform"
   },
   {
     id: "3",
-    title: "Implementing Secure Authentication in Spring Boot Applications",
-    excerpt: "A step-by-step guide to implementing JWT token authentication in Spring Boot applications with best practices for token management and security.",
-    publishedAt: "2024-03-25",
-    tags: ["Spring Boot", "Security", "JWT", "Authentication"],
-    coverImage: "https://images.unsplash.com/photo-1545670723-196ed0954986?q=80&w=2052&auto=format&fit=crop",
-    slug: "jwt-authentication-spring-boot"
+    title: "E-Commerce Backend",
+    excerpt: "A scalable e-commerce backend using Java Spring Boot with order management, notifications, and API functionalities following SOLID principles.",
+    publishedAt: "2023-12-01",
+    tags: ["Java", "Spring Boot", "SOLID", "Design Patterns", "E-Commerce"],
+    coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
+    slug: "ecommerce-website-backend"
   }
 ];
 
@@ -42,9 +41,8 @@ const LatestPosts = () => {
   useEffect(() => {
     // Simulate API loading
     const loadPosts = async () => {
-      // In the future, this will fetch from Supabase
       setTimeout(() => {
-        setPosts(mockPosts);
+        setPosts(projectPosts);
         setIsLoading(false);
       }, 500);
     };
@@ -79,7 +77,7 @@ const LatestPosts = () => {
       </div>
       <div className="mt-8 text-center">
         <Button asChild variant="outline">
-          <Link to="/blog">View All Posts</Link>
+          <Link to="/blog">View All Projects</Link>
         </Button>
       </div>
     </div>

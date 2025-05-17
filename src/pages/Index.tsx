@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "lucide-react";
 import LatestPosts from "@/components/LatestPosts";
-import Subscribe from "@/components/Subscribe";
 
 const Index = () => {
   return (
@@ -16,12 +15,12 @@ const Index = () => {
               Software Engineering & <span className="text-primary">Backend Development</span>
             </h1>
             <p className="animate-fade-up animation-delay-100 text-xl text-muted-foreground mb-8">
-              Welcome to my blog where I share insights on software architecture, 
-              Java Spring Boot, database optimization, and my journey in tech.
+              Welcome to my portfolio where I showcase my projects and technical expertise in Java Spring Boot, 
+              database optimization, and software architecture.
             </p>
             <div className="animate-fade-up animation-delay-200 flex flex-wrap gap-4 justify-center">
               <Button asChild size="lg">
-                <Link to="/blog">Read My Blog</Link>
+                <Link to="/blog">View Projects</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/about">About Me</Link>
@@ -40,9 +39,9 @@ const Index = () => {
       <section className="py-16 bg-secondary/50">
         <div className="container px-4 mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Latest Blog Posts</h2>
+            <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground">
-              Explore my latest articles on software engineering, backend development, and more.
+              Explore my latest software engineering projects and technical accomplishments.
             </p>
           </div>
           <LatestPosts />
@@ -97,15 +96,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Newsletter Section */}
-      <section className="py-16 bg-secondary/50">
-        <div className="container px-4 mx-auto">
-          <div className="max-w-2xl mx-auto">
-            <Subscribe />
           </div>
         </div>
       </section>
