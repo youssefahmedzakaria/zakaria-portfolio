@@ -10,8 +10,10 @@ import {
   Calendar,
   Terminal,
   Code,
-  Database 
+  Database,
+  GraduationCap
 } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const skills = [
   { category: "Languages", items: ["Java", "Python", "C++", "SQL", "JavaScript"] },
@@ -116,22 +118,65 @@ const About = () => {
                     </a>
                   </Button>
                 </div>
-                <div className="p-6 border border-primary/20 rounded-xl bg-primary/5 backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-3 flex items-center">
-                    <Calendar className="mr-2 h-5 w-5 text-primary" />
-                    Education
-                  </h3>
-                  <div className="mb-2">
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium">Cairo University</span>
-                      <span className="text-muted-foreground">2021 - 2025</span>
+                
+                {/* Education and Siemens Diploma Section */}
+                <div className="space-y-6 mb-6">
+                  <div className="p-6 border border-primary/20 rounded-xl bg-primary/5 backdrop-blur-sm">
+                    <h3 className="text-xl font-semibold mb-3 flex items-center">
+                      <Calendar className="mr-2 h-5 w-5 text-primary" />
+                      Education
+                    </h3>
+                    <div className="mb-2">
+                      <div className="flex justify-between mb-1">
+                        <span className="font-medium">Cairo University</span>
+                        <span className="text-muted-foreground">2021 - 2025</span>
+                      </div>
+                      <p>Bachelor of Computers and Artificial Intelligence</p>
                     </div>
-                    <p>Bachelor of Computers and Artificial Intelligence</p>
+                  </div>
+                  
+                  {/* Siemens Diploma Card */}
+                  <div className="p-6 border border-primary/20 rounded-xl bg-gradient-to-br from-primary/10 to-background backdrop-blur-sm">
+                    <h3 className="text-xl font-semibold mb-3 flex items-center">
+                      <GraduationCap className="mr-2 h-5 w-5 text-primary" />
+                      Siemens Diploma
+                    </h3>
+                    <div className="mb-4">
+                      <div className="flex justify-between mb-2">
+                        <span className="font-medium">Siemens Digital Industries</span>
+                        <span className="text-muted-foreground">2023 - 2024</span>
+                      </div>
+                      <p className="mb-3 leading-relaxed">
+                        Completed an intensive professional development program focusing on industrial software 
+                        engineering and digital transformation technologies. The program covered advanced 
+                        topics in software development, automation, and industry 4.0 principles.
+                      </p>
+                      <div className="space-y-2">
+                        <div>
+                          <h4 className="font-medium text-sm text-primary">Key Achievements</h4>
+                          <ul className="list-disc list-inside text-sm text-muted-foreground mt-1 space-y-1">
+                            <li>Developed the Virtual Screener Platform for streamlined candidate assessment</li>
+                            <li>Mastered advanced frontend and backend integration techniques</li>
+                            <li>Collaborated in cross-functional teams to deliver enterprise-grade solutions</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-sm text-primary">Technologies Used</h4>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            <Badge variant="outline" className="bg-primary/5">React.js</Badge>
+                            <Badge variant="outline" className="bg-primary/5">Next.js</Badge>
+                            <Badge variant="outline" className="bg-primary/5">Java</Badge>
+                            <Badge variant="outline" className="bg-primary/5">Spring Boot</Badge>
+                            <Badge variant="outline" className="bg-primary/5">REST APIs</Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div>
-                <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-border/50 shadow-sm mb-6">
+                <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-border/50 shadow-sm mb-6 sticky top-20">
                   <h3 className="text-xl font-semibold mb-4">Skills</h3>
                   {skills.map((skillGroup, index) => (
                     <div key={index} className="mb-4">
@@ -185,6 +230,88 @@ const About = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Virtual Screener Project Spotlight - Siemens Diploma Project */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 to-background"></div>
+        <div className="container px-4 mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Siemens Diploma Project Spotlight
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              A detailed look at the Virtual Screener Platform developed during the Siemens Diploma program
+            </p>
+            
+            <div className="bg-background/70 backdrop-blur-md border border-primary/20 rounded-2xl overflow-hidden mb-8 shadow-lg">
+              <div className="md:flex">
+                <div className="md:w-2/5 bg-gradient-to-br from-primary/20 to-primary/5 p-8">
+                  <div className="h-full flex flex-col justify-center">
+                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-lg inline-block mb-6">
+                      <Code className="h-10 w-10 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">Virtual Screener Platform</h3>
+                    <p className="text-muted-foreground mb-6">
+                      A web-based platform for streamlined candidate screening via video assessments, 
+                      built during the Siemens Diploma program.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {["React.js", "Next.js", "Java", "Spring Boot", "REST API"].map((tech, i) => (
+                        <Badge key={i} variant="outline" className="bg-primary/10 text-primary">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="md:w-3/5 p-8">
+                  <h4 className="text-lg font-semibold mb-4 text-primary">Project Overview</h4>
+                  <p className="mb-4 leading-relaxed">
+                    The Virtual Screener Platform was developed as a capstone project during the Siemens 
+                    Diploma program, addressing the challenge of efficient candidate assessment in the 
+                    modern remote work environment.
+                  </p>
+                  
+                  <h4 className="text-lg font-semibold mb-4 text-primary">Key Features</h4>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-2">
+                      <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-medium text-primary">01</span>
+                      </div>
+                      <span>Automated video interview recording and assessment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-medium text-primary">02</span>
+                      </div>
+                      <span>Real-time skill evaluation with customizable rubrics</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-medium text-primary">03</span>
+                      </div>
+                      <span>Collaborative review system for hiring teams</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-xs font-medium text-primary">04</span>
+                      </div>
+                      <span>Advanced analytics for candidate comparison</span>
+                    </li>
+                  </ul>
+                  
+                  <h4 className="text-lg font-semibold mb-4 text-primary">Technical Achievements</h4>
+                  <p className="leading-relaxed">
+                    Built a microservices architecture with Java Spring Boot backend and React.js frontend. 
+                    Implemented secure video streaming, real-time collaboration features, and 
+                    RESTful APIs following industry best practices learned during the Siemens Diploma program.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
