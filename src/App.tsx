@@ -19,8 +19,9 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Sonner />        <HashRouter>
-          <div className="flex flex-col min-h-screen transition-colors duration-300 bg-background text-foreground">
+        <Sonner />
+        <HashRouter>
+          <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow pt-16">
               <Routes>

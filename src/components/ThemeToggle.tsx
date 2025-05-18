@@ -14,20 +14,25 @@ const ThemeToggle = () => {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>          <Button
+        <TooltipTrigger asChild>
+          <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
             className="relative overflow-hidden rounded-full"
           >
             <span className="sr-only">Toggle theme</span>
-            <div className="relative w-[1.2rem] h-[1.2rem]">
-              <Sun className={`absolute h-[1.2rem] w-[1.2rem] transition-all duration-300 ${
-                theme === 'dark' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0'
-              }`} />
-              <Moon className={`absolute h-[1.2rem] w-[1.2rem] transition-all duration-300 ${
-                theme === 'light' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0'
-              }`} />
+            <div className="transition-all duration-500 ease-in-out">
+              {theme === "dark" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all absolute" />
+              )}
+              {theme === "light" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all absolute" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+              )}
             </div>
           </Button>
         </TooltipTrigger>

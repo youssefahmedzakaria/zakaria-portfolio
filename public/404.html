@@ -4,38 +4,6 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Check localStorage for theme preference and apply it immediately
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
-  <style>
-    :root {
-      --background-color: #fff;
-      --text-color: #000;
-    }
-    .dark {
-      --background-color: #121212;
-      --text-color: #f3f4f6;
-    }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
-  </style>
-  <script>
     // Single Page Apps for GitHub Pages
     // MIT License
     // This script takes the current URL and converts the path and query    // string into just a query string, and then redirects the browser
@@ -49,12 +17,10 @@
       l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
       (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
       l.hash
-    );  </script>
+    );
+  </script>
 </head>
 <body>
-  <div class="container">
-    <h2>Redirecting...</h2>
-    <p>Please wait while we redirect you to the correct page.</p>
-  </div>
+  Redirecting...
 </body>
 </html>
