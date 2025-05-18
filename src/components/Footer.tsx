@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Youssef Ahmed</h3>
             <p className="text-muted-foreground mb-6">
-              Software Engineer specializing in backend development, databases, and cloud solutions.
+              Software Engineer specializing in backend development, databases, and software solutions.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild className="rounded-full h-10 w-10 bg-background/50 hover:bg-primary/10 hover:text-primary">
