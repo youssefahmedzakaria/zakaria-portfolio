@@ -35,14 +35,21 @@ const ThemeToggle = () => {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="focus-visible:ring-1"
-            aria-label="Toggle theme"
+            className="relative overflow-hidden rounded-full"
           >
-            {theme === "light" ? (
-              <Moon className="h-5 w-5" />
-            ) : (
-              <Sun className="h-5 w-5" />
-            )}
+            <span className="sr-only">Toggle theme</span>
+            <div className="transition-all duration-500 ease-in-out">
+              {theme === "dark" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all absolute" />
+              )}
+              {theme === "light" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all absolute" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+              )}
+            </div>
           </Button>
         </TooltipTrigger>
         <TooltipContent>

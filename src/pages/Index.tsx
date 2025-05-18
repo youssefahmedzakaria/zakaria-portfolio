@@ -15,6 +15,13 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="animate-fade-up">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                <span className="relative flex h-2 w-2 mr-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Available for new opportunities
+              </div>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-gradient">
                 Software Engineering <br />& Backend Development
               </h1>

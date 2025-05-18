@@ -68,15 +68,41 @@ const GitHubRepos = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hoveredRepo, setHoveredRepo] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Simulate API loading
     const fetchRepos = async () => {
-      // In the future, this will use the GitHub API
-      setTimeout(() => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('https://api.github.com/users/youssefahmedzakaria/repos?sort=updated&per_page=6');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch repositories');
+        }
+        
+        const data = await response.json();
+        
+        // Transform the data to match our GitHubRepo type
+        const transformedData = data.map((repo: any) => ({
+          id: repo.id,
+          name: repo.name,
+          html_url: repo.html_url,
+          description: repo.description || 'No description provided',
+          language: repo.language,
+          stargazers_count: repo.stargazers_count,
+          forks_count: repo.forks_count,
+          updated_at: repo.updated_at,
+          private: repo.private
+        }));
+        
+        setRepos(transformedData);
+      } catch (err) {
+        console.error('Error fetching repos:', err);
+        setError('Failed to load repositories. Using mock data instead.');
         setRepos(mockRepos);
+      } finally {
         setIsLoading(false);
-      }, 600);
+      }
     };
     
     fetchRepos();
