@@ -85,13 +85,13 @@
   }
 }
 
-@layer base {
-  * {
+@layer base {  * {
     @apply border-border;
   }
 
   html {
     scroll-behavior: smooth;
+    @apply transition-colors duration-300;
   }
 
   body {

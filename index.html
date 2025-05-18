@@ -8,6 +8,19 @@
     <meta property="og:type" content="website" />
     <link rel="icon" href="/favicon.ico" />
 
+    <!-- Theme initialization to prevent flash -->
+    <script>
+      // Check localStorage for theme preference
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.classList.add(storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.add('light');
+      }
+    </script>
+
     <!-- GitHub Pages SPA routing fix -->
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
