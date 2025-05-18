@@ -55,7 +55,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     
     return "light";
   });
-
   useEffect(() => {
     const root = window.document.documentElement;
     
@@ -64,6 +63,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     
     // Add the current theme class
     root.classList.add(theme);
+    
+    // Update meta theme-color for mobile browsers
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute(
+        'content',
+        theme === 'dark' ? 'hsl(240 10% 3.9%)' : 'hsl(0 0% 100%)'
+      );
+    }
     
     // Save the theme preference to localStorage
     localStorage.setItem("theme", theme);

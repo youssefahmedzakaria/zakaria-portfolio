@@ -105,8 +105,7 @@ const Navbar = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
+              </a>              <a 
                 href="https://www.overleaf.com/read/gfvymnxwjnbc#4a6fc1" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -116,12 +115,14 @@ const Navbar = () => {
                 <Download className="h-4 w-4" />
                 Resume
               </a>
-              <ThemeToggle />
+              <div className="pl-1">
+                <ThemeToggle />
+              </div>
             </div>
           </nav>
           
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center space-x-2">
+          <div className="flex md:hidden items-center space-x-3">
             <ThemeToggle />
             <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu" className="relative">
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
