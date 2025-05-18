@@ -107,7 +107,7 @@ const Navbar = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.overleaf.com/read/gfvymnxwjnbc#4a6fc1" 
+                href="https://drive.google.com/file/d/1bGlWwuoS2rXL7QQLnt1FEbLmHOpYVGwN/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
@@ -185,7 +185,7 @@ const Navbar = () => {
               LinkedIn
             </a>
             <a 
-              href="https://www.overleaf.com/read/gfvymnxwjnbc#4a6fc1" 
+              href="https://drive.google.com/file/d/1bGlWwuoS2rXL7QQLnt1FEbLmHOpYVGwN/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center px-3 py-2 rounded-lg text-base font-medium bg-primary/10 text-primary"

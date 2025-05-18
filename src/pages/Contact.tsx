@@ -91,7 +91,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium">Resume</h3>
                     <a 
-                      href="https://www.overleaf.com/read/gfvymnxwjnbc#4a6fc1" 
+                      href="https://drive.google.com/file/d/1bGlWwuoS2rXL7QQLnt1FEbLmHOpYVGwN/view?usp=sharing" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors flex items-center"
