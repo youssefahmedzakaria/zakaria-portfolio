@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Star, GitFork, Clock } from "lucide-react";
@@ -66,6 +67,7 @@ const languageColors: Record<string, string> = {
 const GitHubRepos = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hoveredRepo, setHoveredRepo] = useState<number | null>(null);
 
   useEffect(() => {
     // Simulate API loading
@@ -74,7 +76,7 @@ const GitHubRepos = () => {
       setTimeout(() => {
         setRepos(mockRepos);
         setIsLoading(false);
-      }, 800);
+      }, 600);
     };
     
     fetchRepos();
@@ -84,7 +86,7 @@ const GitHubRepos = () => {
     return (
       <div className="grid grid-cols-1 gap-4">
         {[1, 2, 3].map((i) => (
-          <Card key={i} className="overflow-hidden">
+          <Card key={i} className="overflow-hidden border border-border/40 animate-pulse">
             <CardHeader className="pb-2">
               <Skeleton className="h-6 w-3/4" />
               <Skeleton className="h-4 w-1/2" />
@@ -109,11 +111,15 @@ const GitHubRepos = () => {
           // Non-clickable card for Virtual Screener project
           <Card 
             key={repo.id}
-            className="h-full overflow-hidden border-border/50 backdrop-blur-sm bg-background/80"
+            className="h-full overflow-hidden border-border/50 backdrop-blur-sm bg-background/80 transition-all duration-300 hover:shadow-md"
+            onMouseEnter={() => setHoveredRepo(repo.id)}
+            onMouseLeave={() => setHoveredRepo(null)}
           >
             <CardHeader className="pb-2">
               <div className="flex items-center">
-                <Github className="h-4 w-4 mr-2" />
+                <div className="mr-2 bg-primary/10 p-1.5 rounded-full">
+                  <Github className="h-4 w-4 text-primary" />
+                </div>
                 <CardTitle className="text-lg font-semibold flex items-center">
                   {repo.name}
                   <Badge variant="outline" className="ml-2 text-xs bg-secondary/50">Private</Badge>
@@ -157,10 +163,18 @@ const GitHubRepos = () => {
             rel="noopener noreferrer"
             className="block"
           >
-            <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors backdrop-blur-sm bg-background/80">
+            <Card 
+              className={`h-full overflow-hidden transition-all duration-300 backdrop-blur-sm bg-background/80 ${
+                hoveredRepo === repo.id ? 'border-primary/50 shadow-md translate-y-[-2px]' : 'border-border/50'
+              }`}
+              onMouseEnter={() => setHoveredRepo(repo.id)}
+              onMouseLeave={() => setHoveredRepo(null)}
+            >
               <CardHeader className="pb-2">
                 <div className="flex items-center">
-                  <Github className="h-4 w-4 mr-2" />
+                  <div className="mr-2 bg-primary/10 p-1.5 rounded-full group-hover:bg-primary/20 transition-colors">
+                    <Github className="h-4 w-4 text-primary" />
+                  </div>
                   <CardTitle className="text-lg font-semibold">{repo.name}</CardTitle>
                 </div>
                 <CardDescription className="flex items-center text-xs">

@@ -90,17 +90,23 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.01em;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
+    letter-spacing: -0.02em;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl;
+    @apply text-4xl md:text-5xl font-bold;
   }
   
   h2 {
@@ -171,6 +177,30 @@
   
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+  
+  .highlight-card {
+    @apply border-primary/30 bg-primary/5;
+  }
+  
+  .highlight-border {
+    @apply border border-primary/30;
+  }
+  
+  .highlight-text {
+    @apply text-primary font-medium;
+  }
+  
+  .skill-badge {
+    @apply text-xs px-2 py-1 bg-primary/10 text-primary rounded-full inline-block;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
+  }
+  
+  .hover-scale {
+    @apply hover:scale-[1.02] transition-transform duration-200;
   }
   
   @keyframes float {

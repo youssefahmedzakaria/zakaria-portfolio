@@ -43,44 +43,85 @@ const LatestPosts = () => {
     <div>
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {projects.map((project) => (
-          <Card 
-            key={project.id} 
-            className={`border border-border/40 shadow-lg transition-all duration-300 overflow-hidden group backdrop-blur-sm ${
-              isHovered === project.id ? 'shadow-xl border-primary/30 translate-y-[-5px]' : 'bg-background/50'
-            }`}
-            onMouseEnter={() => setIsHovered(project.id)}
-            onMouseLeave={() => setIsHovered(null)}
-          >
-            <CardContent className="p-6">
-              <div className="mb-5 bg-primary/10 p-4 rounded-xl inline-block transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
-                {project.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-2">
-                {project.title}
-                {!project.clickable && (
-                  <span className="ml-2 text-xs bg-secondary/70 px-2 py-0.5 rounded-full text-secondary-foreground">
-                    Private
-                  </span>
-                )}
-              </h3>
-              <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.slice(0, 3).map((tech, i) => (
-                  <span 
-                    key={i} 
-                    className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {project.tech.length > 3 && (
-                  <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-full">
-                    +{project.tech.length - 3} more
-                  </span>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <div key={project.id}>
+            {project.clickable ? (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <Card 
+                  className={`border border-border/40 shadow-lg transition-all duration-300 overflow-hidden group backdrop-blur-sm h-full ${
+                    isHovered === project.id ? 'shadow-xl border-primary/30 translate-y-[-5px]' : 'bg-background/50'
+                  }`}
+                  onMouseEnter={() => setIsHovered(project.id)}
+                  onMouseLeave={() => setIsHovered(null)}
+                >
+                  <CardContent className="p-6">
+                    <div className="mb-5 bg-primary/10 p-4 rounded-xl inline-block transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                      {project.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.slice(0, 3).map((tech, i) => (
+                        <span 
+                          key={i} 
+                          className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-full">
+                          +{project.tech.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            ) : (
+              <Card 
+                className={`border border-border/40 shadow-lg transition-all duration-300 overflow-hidden group backdrop-blur-sm h-full ${
+                  isHovered === project.id ? 'shadow-xl border-primary/30 translate-y-[-5px]' : 'bg-background/50'
+                }`}
+                onMouseEnter={() => setIsHovered(project.id)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+                <CardContent className="p-6">
+                  <div className="mb-5 bg-primary/10 p-4 rounded-xl inline-block transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                    {project.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">
+                    {project.title}
+                    <span className="ml-2 text-xs bg-secondary/70 px-2 py-0.5 rounded-full text-secondary-foreground">
+                      Private
+                    </span>
+                  </h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.slice(0, 3).map((tech, i) => (
+                      <span 
+                        key={i} 
+                        className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-full">
+                        +{project.tech.length - 3} more
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
         ))}
       </div>
       <div className="mt-10 text-center">
