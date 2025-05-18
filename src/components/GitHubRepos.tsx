@@ -17,35 +17,35 @@ interface GitHubRepo {
   updated_at: string;
 }
 
-// Temporary mock data until we connect to the GitHub API
+// Realistic mock data based on the GitHub profile
 const mockRepos: GitHubRepo[] = [
   {
     id: 1,
-    name: "banking-system",
-    description: "A secure money transfer platform using Java Spring Boot with PostgreSQL and Redis for caching",
-    html_url: "https://github.com/youssefahmedzakaria/banking-system",
-    stargazers_count: 15,
-    forks_count: 3,
-    language: "Java",
+    name: "VS_platform",
+    description: "Virtual Screener Platform developed during Siemens Diploma - a web-based solution for candidate assessment",
+    html_url: "https://github.com/youssefahmedzakaria/VS_platform",
+    stargazers_count: 3,
+    forks_count: 0,
+    language: "JavaScript",
     updated_at: "2024-09-15T14:27:35Z"
   },
   {
     id: 2,
-    name: "virtual-screener",
-    description: "Web-based platform for streamlined candidate screening via video assessments using Spring Boot and React",
-    html_url: "https://github.com/youssefahmedzakaria/virtual-screener",
-    stargazers_count: 8,
-    forks_count: 2,
-    language: "TypeScript",
+    name: "BankingSystem",
+    description: "Banking System backend developed with Java Spring Boot, featuring secure transactions and PostgreSQL integration",
+    html_url: "https://github.com/youssefahmedzakaria/BankingSystem",
+    stargazers_count: 2,
+    forks_count: 1,
+    language: "Java",
     updated_at: "2024-12-05T09:12:45Z"
   },
   {
     id: 3,
-    name: "ecommerce-backend",
-    description: "Scalable e-commerce backend using Java Spring Boot with SOLID principles and design patterns",
-    html_url: "https://github.com/youssefahmedzakaria/ecommerce-backend",
-    stargazers_count: 12,
-    forks_count: 4,
+    name: "ECommerceAPI",
+    description: "E-commerce backend API built with Java Spring Boot following SOLID principles and clean architecture patterns",
+    html_url: "https://github.com/youssefahmedzakaria/ECommerceAPI",
+    stargazers_count: 2,
+    forks_count: 0,
     language: "Java",
     updated_at: "2024-12-10T18:35:22Z"
   }
@@ -113,7 +113,7 @@ const GitHubRepos = () => {
           rel="noopener noreferrer"
           className="block"
         >
-          <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+          <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors backdrop-blur-sm bg-background/80">
             <CardHeader className="pb-2">
               <div className="flex items-center">
                 <Github className="h-4 w-4 mr-2" />
