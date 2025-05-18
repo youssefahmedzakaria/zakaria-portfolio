@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
 
@@ -38,14 +38,14 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border/50" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary">
+            <Link to="/" className="text-2xl font-bold text-gradient">
               Youssef Ahmed
             </Link>
           </div>
@@ -56,10 +56,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
-                    : "text-foreground/90 hover:text-primary hover:bg-primary/5"
+                    : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                 }`}
               >
                 {item.name}
@@ -82,14 +82,14 @@ const Navbar = () => {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-background/95 backdrop-blur-md shadow-lg animate-fade-in">
+        <nav className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg animate-fade-in">
           <div className="container px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2 rounded-lg text-base font-medium ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
                     : "text-foreground hover:text-primary hover:bg-primary/5"

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const projects = [
   {
     id: "1",
-    title: "Banking System with Java Spring Boot",
+    title: "Banking System with Spring Boot",
     description: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
     tech: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Docker"],
     icon: <Terminal className="h-10 w-10 text-primary" />
@@ -35,23 +35,23 @@ const LatestPosts = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {projects.map((project) => (
           <Card 
             key={project.id} 
-            className={`border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-background/50 backdrop-blur-sm overflow-hidden group ${
-              isHovered === project.id ? 'ring-1 ring-primary/50' : ''
+            className={`border border-border/40 shadow-lg transition-all duration-300 overflow-hidden group backdrop-blur-sm ${
+              isHovered === project.id ? 'shadow-xl border-primary/30 translate-y-[-5px]' : 'bg-background/50'
             }`}
             onMouseEnter={() => setIsHovered(project.id)}
             onMouseLeave={() => setIsHovered(null)}
           >
             <CardContent className="p-6">
-              <div className="mb-5 bg-primary/10 p-4 rounded-full inline-block group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-5 bg-primary/10 p-4 rounded-xl inline-block transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/20">
                 {project.icon}
               </div>
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
               <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2">
                 {project.tech.slice(0, 3).map((tech, i) => (
                   <span 
                     key={i} 
@@ -70,7 +70,7 @@ const LatestPosts = () => {
           </Card>
         ))}
       </div>
-      <div className="mt-8 text-center">
+      <div className="mt-10 text-center">
         <Button asChild variant="outline" className="rounded-full group">
           <Link to="/about" className="flex items-center">
             View All Projects 
