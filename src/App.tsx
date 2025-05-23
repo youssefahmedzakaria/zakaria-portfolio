@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import PageWrapper from "./components/PageWrapper";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollProgressBar from "./components/ScrollProgressBar";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const queryClient = new QueryClient();
 
@@ -23,16 +24,18 @@ const App = () => (
     <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-primary focus:text-primary-foreground p-2 rounded">
       Skip to main content
     </a>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <ScrollProgressBar />
-      <HashRouter>
-        <ScrollToTop />
-        {/* Main content with animated route transitions */}
-        <MainContent />
-      </HashRouter>
-    </TooltipProvider>
+    <ThemeProvider defaultTheme="system" storageKey="theme">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <ScrollProgressBar />
+        <HashRouter>
+          <ScrollToTop />
+          {/* Main content with animated route transitions */}
+          <MainContent />
+        </HashRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 

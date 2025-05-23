@@ -5,10 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import LatestPosts from "@/components/LatestPosts";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return (    <div className="min-h-screen">
       {/* Hero Section with Glassmorphism */}
-      <section className="pt-40 pb-16 relative overflow-hidden">
+      <section className="pt-28 pb-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/10 rounded-full filter blur-[120px] -z-10 animate-float"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 rounded-full filter blur-[80px] -z-10 animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="container mx-auto">
@@ -32,13 +31,13 @@ const Index = () => {
                 Software Engineer at <span className="text-primary font-medium">Kaf Insurance</span> with expertise in Django, PostgreSQL, and Docker.
                 B.Sc. in Computers and Artificial Intelligence from Cairo University.
               </p>              <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-full group">
+                <Button asChild size="lg" className="rounded-full group w-[140px] sm:w-auto justify-center">
                   <Link to="/about#top" className="flex items-center">
                     About Me
                     <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full group">
+                <Button asChild variant="outline" size="lg" className="rounded-full group w-[140px] sm:w-auto justify-center">
                   <Link to="/contact" className="flex items-center">
                     Get In Touch
                     <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -48,13 +47,11 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Featured Projects */}
-      <section className="py-24 relative">
+      </section>      {/* Featured Projects */}
+      <section className="py-16 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background -z-10"></div>
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-gradient">Featured Projects</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Explore my key software engineering projects and technical accomplishments that demonstrate my skills.
@@ -63,10 +60,8 @@ const Index = () => {
 
           <LatestPosts />
         </div>
-      </section>
-
-      {/* About Me Preview */}
-      <section className="py-24 relative overflow-hidden">
+      </section>      {/* About Me Preview */}
+      <section className="py-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full filter blur-[100px] -z-10"></div>
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
@@ -138,10 +133,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Experience Highlights */}
-      <section className="py-24 bg-gradient-to-br from-background to-secondary/20">
+      </section>      {/* Experience Highlights */}
+      <section className="py-16 bg-gradient-to-br from-background to-secondary/20">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-gradient text-center">Experience Highlights</h2>

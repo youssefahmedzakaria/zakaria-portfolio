@@ -86,7 +86,7 @@ const About = () => {
     
     // Function to determine which section is currently in view
     const handleScroll = () => {
-      const sections = ['top', 'experience', 'siemens-project', 'projects', 'awards'];
+      const sections = ['top', 'experience', 'favorite-project', 'projects', 'awards'];
       
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId);
@@ -136,12 +136,12 @@ const About = () => {
               Experience
             </Button>
             <Button 
-              variant={activeSection === 'siemens-project' ? 'secondary' : 'ghost'}
+              variant={activeSection === 'favorite-project' ? 'secondary' : 'ghost'}
               size="sm" 
               className="w-full justify-start text-sm font-medium" 
-              onClick={() => scrollToSection('siemens-project')}
+              onClick={() => scrollToSection('favorite-project')}
             >
-              Siemens Project
+              Favorite Project
             </Button>
             <Button 
               variant={activeSection === 'projects' ? 'secondary' : 'ghost'}
@@ -213,12 +213,12 @@ const About = () => {
               Experience
             </Button>
             <Button 
-              variant={activeSection === 'siemens-project' ? 'default' : 'ghost'}
+              variant={activeSection === 'favorite-project' ? 'default' : 'ghost'}
               size="sm" 
               className="whitespace-nowrap rounded-full text-sm" 
-              onClick={() => scrollToSection('siemens-project')}
+              onClick={() => scrollToSection('favorite-project')}
             >
-              Siemens
+              Favorite Project
             </Button>
             <Button 
               variant={activeSection === 'projects' ? 'default' : 'ghost'}
@@ -241,9 +241,8 @@ const About = () => {
       </div>
       
       {/* Main Content */}
-      <div className="flex-grow lg:ml-56">
-        {/* Hero Section with Gradient Background */}
-        <section id="top" className="pt-32 pb-16 relative">
+      <div className="flex-grow lg:ml-56">        {/* Hero Section with Gradient Background */}
+        <section id="top" className="pt-24 pb-16 relative">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
           <div className="container px-4 mx-auto">
             <div className="max-w-4xl mx-auto">
@@ -378,9 +377,8 @@ const About = () => {
             </div>
           </div>
         </section>      
-        
-        {/* Experience Section */}
-        <section id="experience" className="py-20 bg-secondary/30 scroll-mt-28">
+          {/* Experience Section */}
+        <section id="experience" className="py-14 bg-secondary/30 scroll-mt-28">
           <div className="container px-4 mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Professional Experience</h2>
@@ -414,9 +412,8 @@ const About = () => {
             </div>
           </div>
         </section>
-        
-        {/* Virtual Screener Project Spotlight - Siemens Diploma Project */}
-        <section id="siemens-project" className="py-20 relative overflow-hidden scroll-mt-32">
+          {/* Virtual Screener Project Spotlight - Siemens Diploma Project */}
+        <section id="favorite-project" className="py-14 relative overflow-hidden scroll-mt-32">
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 to-background"></div>
           <div className="container px-4 mx-auto">
             <div className="max-w-4xl mx-auto">
@@ -498,7 +495,7 @@ const About = () => {
         </section>        
         
         {/* Key Projects Section */}
-        <section id="projects" className="py-20 scroll-mt-20">
+        <section id="projects" className="py-14 scroll-mt-20">
           <div className="container px-4 mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Key Projects</h2>
@@ -537,9 +534,8 @@ const About = () => {
             </div>
           </div>
         </section>      
-        
-        {/* Awards and Certificates Section */}
-        <section id="awards" className="py-20 bg-gradient-to-br from-primary/5 to-background scroll-mt-20">
+          {/* Awards and Certificates Section */}
+        <section id="awards" className="py-14 bg-gradient-to-br from-primary/5 to-background scroll-mt-20">
           <div className="container px-4 mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Awards and Certificates</h2>
