@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">  <head>
+<html lang="en">
+  <head>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/zakaria-portfolio/favicon.ico" />
     <title>Youssef Zakaria</title>
     <meta name="author" content="Zakaria" />
 
@@ -28,11 +38,11 @@
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/zakaria-portfolio/assets/index-DbsUzq87.js"></script>
-    <link rel="stylesheet" crossorigin href="/zakaria-portfolio/assets/index-BW3tGPxG.css">
+    <script type="module" crossorigin src="/zakaria-portfolio/assets/index-PfzHgXon.js"></script>
+    <link rel="stylesheet" crossorigin href="/zakaria-portfolio/assets/index-DHqVuriQ.css">
   </head>
 
   <body>
-    <div id="root"></div>
+<div id="root"></div>
   </body>
 </html>
