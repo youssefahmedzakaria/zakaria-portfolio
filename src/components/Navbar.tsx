@@ -1,43 +1,58 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Github, Linkedin, Download, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
+import { useReducedMotion, motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  
+  const shouldReduceMotion = useReducedMotion();
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
-  
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
   ];
-  
+
   const isActive = (path: string) => {
     if (path === "/" && location.pathname !== "/") {
       return false;
     }
     return location.pathname.startsWith(path);
+  };
+
+  const mobileVariants = {
+    open: {
+      opacity: 1,
+      height: 'auto',
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 }
+    },
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: { duration: shouldReduceMotion ? 0 : 0.2 }
+    }
   };
 
   return (
@@ -57,7 +72,7 @@ const Navbar = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1 items-center">
+          <nav aria-label="Primary navigation" className="hidden md:flex space-x-1 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -123,7 +138,14 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center space-x-2">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu" className="relative">
+            <Button
+              aria-controls="mobile-menu"
+              aria-expanded={isMenuOpen}
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              aria-label="Menu" className="relative"
+            >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -131,10 +153,14 @@ const Navbar = () => {
       </div>
       
       {/* Mobile Navigation */}
-      <div 
-        className={`md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg overflow-hidden transition-all duration-300 ${
-          isMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
+      <motion.div
+        id="mobile-menu"
+        role="navigation"
+        aria-hidden={!isMenuOpen}
+        className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg overflow-hidden"
+        initial="closed"
+        animate={isMenuOpen ? 'open' : 'closed'}
+        variants={mobileVariants}
       >
         <div className="container px-4 py-3 space-y-1">
           {navItems.map((item) => (
@@ -195,7 +221,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 };

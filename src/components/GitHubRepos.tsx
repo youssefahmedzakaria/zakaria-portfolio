@@ -22,7 +22,7 @@ const mockRepos: GitHubRepo[] = [
   {
     id: 1,
     name: "MoneyTransfer",
-    description: "A secure money transfer platform with PostgreSQL database and Redis caching, deployed using Docker on Railway for scalable hosting.",
+    description: "A secure money transfer platform using Java Spring Boot with PostgreSQL database and Redis caching. Implemented JWT authentication for secure access, optimized database queries, and deployed using Docker on Railway for scalable hosting.",
     html_url: "https://github.com/youssefahmedzakaria/MoneyTransfer",
     stargazers_count: 2,
     forks_count: 0,
@@ -32,7 +32,7 @@ const mockRepos: GitHubRepo[] = [
   {
     id: 2,
     name: "Online-store",
-    description: "E-commerce backend API built with Java Spring Boot following SOLID principles and clean architecture patterns",
+    description: "E-commerce backend API built with Java Spring Boot following SOLID principles and clean architecture patterns. Features include order management, notifications, user authentication, product catalog, and shopping cart functionality with RESTful API design.",
     html_url: "https://github.com/youssefahmedzakaria/Online-store",
     stargazers_count: 2,
     forks_count: 0,
@@ -42,7 +42,7 @@ const mockRepos: GitHubRepo[] = [
   {
     id: 3,
     name: "VS_platform",
-    description: "Virtual Screener Platform developed during Siemens Diploma - a web-based solution for candidate assessment (Private Repository)",
+    description: "Virtual Screener Platform developed during Siemens Diploma - a web-based solution for candidate screening via video assessments. Built with Next.js frontend and Java Spring Boot backend with RESTful APIs for an intuitive and efficient hiring process (Private Repository).",
     html_url: "#",
     stargazers_count: 0,
     forks_count: 0,
@@ -71,10 +71,9 @@ const GitHubRepos = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchRepos = async () => {
-      try {
+    const fetchRepos = async () => {      try {
         setIsLoading(true);
-        const response = await fetch('https://api.github.com/users/youssefahmedzakaria/repos?sort=updated&per_page=6');
+        const response = await fetch('https://api.github.com/users/youssefahmedzakaria/repos?sort=updated&per_page=8');
         
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');

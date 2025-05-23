@@ -123,10 +123,9 @@ const LatestPosts = () => {
             )}
           </div>
         ))}
-      </div>
-      <div className="mt-10 text-center">
+      </div>      <div className="mt-10 text-center">
         <Button asChild variant="outline" className="rounded-full group">
-          <Link to="/about" className="flex items-center">
+          <Link to="/projects" className="flex items-center">
             View All Projects 
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
