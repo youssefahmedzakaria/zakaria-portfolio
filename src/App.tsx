@@ -13,6 +13,7 @@ import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 import PageWrapper from "./components/PageWrapper";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollProgressBar from "./components/ScrollProgressBar";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ScrollProgressBar />
       <HashRouter>
         <ScrollToTop />
         {/* Main content with animated route transitions */}

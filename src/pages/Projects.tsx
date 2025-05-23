@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import GitHubRepos from '@/components/GitHubRepos';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const Projects = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate data loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div id="top" className="min-h-screen pt-32 pb-16">
       <div className="container px-4 mx-auto">
