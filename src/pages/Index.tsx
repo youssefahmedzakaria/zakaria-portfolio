@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 import { ArrowDown, Github, Code, Database, Terminal, ArrowRight, Sparkles, Zap, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import LatestPosts from "@/components/LatestPosts";
+import BackgroundDecoration from "@/components/BackgroundDecoration";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      <BackgroundDecoration />
       {/* Hero Section with Enhanced Glassmorphism */}
-      <section className="pt-28 pb-16 relative overflow-hidden bg-gradient-hero">
-        {/* Enhanced background effects */}
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-primary/20 via-purple-500/15 to-blue-500/10 rounded-full filter blur-[120px] -z-10 animate-float"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-primary/15 via-purple-500/10 to-blue-500/15 rounded-full filter blur-[80px] -z-10 animate-float-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/4 h-1/4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full filter blur-[60px] -z-10 animate-pulse-subtle"></div>
-        
+      <section className="pt-28 pb-16">
+        {/* Removed duplicate background effects */}
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-up">
@@ -28,11 +26,12 @@ const Index = () => {
               </div>
               
               {/* Enhanced hero title */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-gradient-hero animate-fade-up">
-                Software Engineering <br />
-                <span className="text-gradient-multi">& Backend Development</span>
-              </h1>
-              
+              <div className="overflow-visible">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-none mb-8 text-gradient-hero pb-4 -mb-2 align-bottom relative z-10 animate-fade-up">
+                  Software Engineering <span className="text-gradient-multi whitespace-nowrap leading-none pb-4 -mb-2">& Backend Development</span>
+                </h1>
+              </div>
+              <br />
               {/* Enhanced description */}
               <div className="space-y-4 mb-8 max-w-3xl">
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -82,10 +81,14 @@ const Index = () => {
             <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full border border-primary/20 mb-6">
               <Zap className="h-6 w-6 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi">Featured Projects</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Explore my key software engineering projects and technical accomplishments that demonstrate my expertise in building scalable solutions.
-            </p>
+            <div className="overflow-visible">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient-multi leading-none pb-4 -mb-2 align-bottom">
+                Featured Projects
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Explore my key software engineering projects and technical accomplishments that demonstrate my expertise in building scalable solutions.
+              </p>
+            </div>
           </div>
 
           <LatestPosts />
@@ -105,9 +108,11 @@ const Index = () => {
                   <Shield className="h-4 w-4 mr-2" />
                   About Me
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi">
-                  Hello, I'm Youssef
-                </h2>
+                <div className="overflow-visible">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi leading-none pb-4 -mb-2 align-bottom">
+                    Hello, I'm Youssef
+                  </h2>
+                </div>
                 <div className="space-y-4 mb-8">
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     I'm a software engineer specializing in backend development with a focus on Java Spring Boot
@@ -187,7 +192,9 @@ const Index = () => {
               <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full border border-primary/20 mb-6">
                 <Code className="h-6 w-6 text-primary" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi">Experience Highlights</h2>
+              <div className="overflow-visible">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi leading-none pb-4 -mb-2 align-bottom">Experience Highlights</h2>
+              </div>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Key milestones in my software engineering journey
               </p>
@@ -251,10 +258,12 @@ const Index = () => {
             <div className="mb-8 inline-flex items-center justify-center p-4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full border border-primary/20 shadow-lg">
               <Github className="h-10 w-10 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi">Explore My Work</h2>
-            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Check out my GitHub for more projects, contributions, and code samples that demonstrate my technical expertise and problem-solving approach.
-            </p>
+            <div className="overflow-visible">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-multi leading-none pb-4 -mb-2 align-bottom">Explore My Work</h2>
+              <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+                Check out my GitHub for more projects, contributions, and code samples that demonstrate my technical expertise and problem-solving approach.
+              </p>
+            </div>
             <Button asChild variant="default" size="lg" className="btn-gradient rounded-full group shadow-lg hover:shadow-xl transition-all duration-300 hover-lift">
               <a
                 href="https://github.com/youssefahmedzakaria"
