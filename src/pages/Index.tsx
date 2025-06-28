@@ -31,7 +31,6 @@ const Index = () => {
                   Software Engineering <span className="text-gradient-multi whitespace-nowrap leading-none pb-4 -mb-2">& Backend Development</span>
                 </h1>
               </div>
-              <br />
               {/* Enhanced description */}
               <div className="space-y-4 mb-8 max-w-3xl">
                 <p className="text-xl text-muted-foreground leading-relaxed">
