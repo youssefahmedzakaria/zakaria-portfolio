@@ -5,16 +5,28 @@ import { motion, useReducedMotion } from "framer-motion";
 const PageWrapper = ({ children }: { children: ReactNode }) => {
   const shouldReduceMotion = useReducedMotion();
   const pageVariants = {
-    initial: { opacity: 0, y: shouldReduceMotion ? 0 : 10 },
+    initial: { 
+      opacity: 0, 
+      y: shouldReduceMotion ? 0 : 20,
+      scale: shouldReduceMotion ? 1 : 0.98
+    },
     animate: {
       opacity: 1,
       y: 0,
-      transition: { duration: shouldReduceMotion ? 0 : 0.5 },
+      scale: 1,
+      transition: { 
+        duration: shouldReduceMotion ? 0 : 0.6,
+        ease: "easeOut"
+      },
     },
     exit: {
       opacity: 0,
-      y: shouldReduceMotion ? 0 : -10,
-      transition: { duration: shouldReduceMotion ? 0 : 0.3 },
+      y: shouldReduceMotion ? 0 : -20,
+      scale: shouldReduceMotion ? 1 : 0.98,
+      transition: { 
+        duration: shouldReduceMotion ? 0 : 0.4,
+        ease: "easeIn"
+      },
     },
   };
 
